@@ -1,0 +1,140 @@
+/* ================= Basic Reset ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* CLOUD ANIMATION */
+.cloud {
+  position: fixed;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: cloudMove 30s linear infinite;
+  z-index: -1;
+}
+
+.cloud1 { width: 300px; height: 120px; top: 10%; left: -300px; }
+.cloud2 { width: 400px; height: 150px; top: 40%; left: -400px; animation-duration: 40s; }
+.cloud3 { width: 250px; height: 100px; top: 70%; left: -250px; animation-duration: 35s; }
+
+@keyframes cloudMove {
+  to { transform: translateX(150vw); }
+}
+
+/* COMMON PAGE STYLE */
+.page {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Page Colors */
+.home { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+.about { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
+.skills { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.work { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+.learning { background: linear-gradient(135deg, #fccb90, #d57eeb); }
+.contact { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+
+/* HOME */
+.home img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  margin-bottom: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.home h1 {
+  font-size: 42px;
+}
+
+.home span {
+  color: #c2185b;
+  font-weight: 900;
+}
+
+.tagline {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* TEXT */
+.page p, li {
+  font-size: 18px;
+  max-width: 900px;
+  line-height: 1.8;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 10px 0;
+}
+
+/* SKILLS */
+.skill-box span {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.skill-box span:hover {
+  transform: scale(1.2);
+  background: #ff4081;
+  color: white;
+}
+
+/* CONTACT */
+.contact a {
+  display: inline-block;
+  margin: 12px;
+  padding: 14px 28px;
+  background: #000;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.contact a:hover {
+  background: #ff1744;
+  transform: translateY(-5px);
+}
+
+.thanks {
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
