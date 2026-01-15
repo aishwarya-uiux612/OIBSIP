@@ -1,20 +1,25 @@
-const pages = document.querySelectorAll('.page');
+function convert() {
+    let input = document.getElementById("inputTemp").value;
+    let type = document.getElementById("type").value;
 
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
+    if (input === "") {
+        alert("Please enter a temperature value!");
+        return;
+    }
 
-    pages.forEach((page, index) => {
-        const pageTop = page.offsetTop;
-        const pageHeight = page.offsetHeight;
+    input = parseFloat(input);
+    let result = "";
 
-        if(scrollY + windowHeight > pageTop + pageHeight / 4) {
-            page.style.opacity = 1;
-            page.style.transform = 'translateY(0)';
-            page.style.transition = `all 1s ease ${index * 0.3}s`;
-        } else {
-            page.style.opacity = 0;
-            page.style.transform = 'translateY(50px)';
-        }
-    });
-});
+    if (type === "C") {
+        // Celsius → Fahrenheit
+        result = (input * 9/5) + 32;
+        document.getElementById("result").innerText = 
+            `Result: ${result.toFixed(2)} °F`;
+    } 
+    else {
+        // Fahrenheit → Celsius
+        result = (input - 32) * 5/9;
+        document.getElementById("result").innerText = 
+            `Result: ${result.toFixed(2)} °C`;
+    }
+}
